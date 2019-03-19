@@ -79,8 +79,9 @@ public class Signature {
     return df.format(time);
   }
   
-  public static String get(String path, String applicationKey, Timestamp time, JSONObject queries, String clientKey) {
+  public static String get(String path, String applicationKey, JSONObject queries, String clientKey) {
     String method = "GET";
+    Timestamp time = new Timestamp(System.currentTimeMillis());
     String signature = sign(method, path, applicationKey, time, queries, clientKey);
     String result = null;
     try {
@@ -98,8 +99,9 @@ public class Signature {
   }
 
 
-  public static String post(String path, String applicationKey, Timestamp time, JSONObject data, String clientKey) {
+  public static String post(String path, String applicationKey, JSONObject data, String clientKey) {
     String method = "POST";
+    Timestamp time = new Timestamp(System.currentTimeMillis());
     String signature = sign(method, path, applicationKey, time, new JSONObject(), clientKey);
     String result = null;
     String urlString = "https://" + Signature.FQDN + path;
