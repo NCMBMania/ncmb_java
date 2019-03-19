@@ -79,7 +79,7 @@ public class Signature {
     return df.format(time);
   }
   
-  public static String get(String path, String applicationKey, JSONObject queries, String clientKey) {
+  public static String get(String path, String applicationKey, String clientKey, JSONObject queries) {
     String method = "GET";
     Timestamp time = new Timestamp(System.currentTimeMillis());
     String signature = sign(method, path, applicationKey, time, queries, clientKey);
@@ -99,7 +99,7 @@ public class Signature {
   }
 
 
-  public static String post(String path, String applicationKey, JSONObject data, String clientKey) {
+  public static String post(String path, String applicationKey, String clientKey, JSONObject data) {
     String method = "POST";
     Timestamp time = new Timestamp(System.currentTimeMillis());
     String signature = sign(method, path, applicationKey, time, new JSONObject(), clientKey);

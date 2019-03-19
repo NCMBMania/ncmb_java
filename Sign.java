@@ -12,13 +12,13 @@ public class Sign{
      // queries
      String clientKey = "3395ea58a34af1edb5009c9d15b3379761539ef3c8eb0ee0d797274e122359b8";
      Signature s = new Signature();
-     String results = s.get(path, applicationKey, queries, clientKey);
+     String results = s.get(path, applicationKey, clientKey, queries);
      System.out.println(results);
      
      JSONObject data = new JSONObject();
      data.put("name", "Name");
      data.put("number", 100);
-     String results2 = s.post(path, applicationKey, data, clientKey);
+     String results2 = s.post(path, applicationKey, clientKey, data);
      System.out.println(results2);
    }
 }
